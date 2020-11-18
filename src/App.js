@@ -1,18 +1,21 @@
 import Head from "./Components/Header";
-import Navbar from "./Components/Navbar";
+import Navbar from './Containers/NavBarContainer';
 import CardProduct from "./Components/ProductCard";
 import { ThemeProvider } from "@material-ui/styles";
-import theme from './MaterialUI/Theme'
-import { Card } from "@material-ui/core";
+import { Provider } from "react-redux";
+import store from "./Store";
+import theme from "./MaterialUI/Theme";
 
 function App() {
   return (
     <div>
       <ThemeProvider theme={theme}>
-        <Head />
-        <Navbar />
-        <CardProduct />
-        <p>Aplicación React y se actualiza</p>
+        <Provider store={store}>
+          <Head />
+          <Navbar />
+          <CardProduct />
+          <p>Aplicación React y se actualiza</p>
+        </Provider>
       </ThemeProvider>
     </div>
   );

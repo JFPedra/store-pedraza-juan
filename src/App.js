@@ -1,6 +1,6 @@
 import Head from "./Components/Header";
 import Navbar from './Containers/NavBarContainer';
-import CardProduct from "./Components/ProductCard";
+import Main from './Containers/MainContainer';
 import { ThemeProvider } from "@material-ui/styles";
 import { Provider } from "react-redux";
 import store from "./Store";
@@ -13,8 +13,7 @@ function App() {
         <Provider store={store}>
           <Head />
           <Navbar />
-          <CardProduct />
-          <p>Aplicación React y se actualiza</p>
+          <Main />
         </Provider>
       </ThemeProvider>
     </div>

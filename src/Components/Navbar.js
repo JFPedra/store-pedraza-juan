@@ -61,7 +61,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function MenuAppBar({user,fetchUserData, fetchAddPoints, fetchRedeemHistory}) {
+export default function MenuAppBar({user, isRedeemHistory, fetchUserData, fetchAddPoints, fetchRedeemHistory, fetchProducts}) {
   const [anchorAccountMenu, setAnchorAccountMenu] = React.useState(null);
   
   React.useEffect(() => {
@@ -82,8 +82,12 @@ export default function MenuAppBar({user,fetchUserData, fetchAddPoints, fetchRed
 
   const handleClose = () => {
     setAnchorAccountMenu(null);
-  };
+  }
 
+  const handleHomeButton = () => {
+    fetchProducts()
+  }
+  console.log('Is Redeem History?:',isRedeemHistory)
   //console.log(user, 'user info en Navbar');
   //console.log(store.getState(), 'esta es el state');
   return (
@@ -95,6 +99,8 @@ export default function MenuAppBar({user,fetchUserData, fetchAddPoints, fetchRed
               className={classes.homeButton}
               size="large"
               color='inherit'
+              disabled={!isRedeemHistory}
+              onClick={() => handleHomeButton()}
             >
               <Typography variant='h6'>
               Home

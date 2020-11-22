@@ -30,9 +30,14 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const ProductCard = ({ img, name, category, isRedeemHistory, cost, coins }) => {
+const ProductCard = ({ product, isRedeemHistory, coins, fetchRedeemProduct }) => {
   const classes = useStyles();
-  console.log(isRedeemHistory, 'en card')
+  //console.log(isRedeemHistory, 'en card')
+
+  const handleBuyButton = (id) => {
+    console.log('se activo botón comprar')
+    fetchRedeemProduct(id)
+  }
   return (
     <Card>
       <CardContent>
@@ -41,18 +46,18 @@ const ProductCard = ({ img, name, category, isRedeemHistory, cost, coins }) => {
             component="img"
             height="220"
             className={classes.image}
-            image={img}
-            alt={name}
+            image={product.img.url}
+            alt={product.name}
           />
         </div>
         <Typography variant="subtitle2" color="textSecondary">
-          {category}
+          {product.category}
         </Typography>
-        <Typography variant="h6">{name}</Typography>
+        <Typography variant="h6">{product.name}</Typography>
         {!isRedeemHistory?   
         <div className={classes.button}>
-        <Button disabled={Boolean(coins < cost)} variant="contained" color="primary" size='small'>
-            {coins >= cost?'Comprar':`Te faltan ${cost-coins} puntos`}
+        <Button disabled={Boolean(coins < product.cost)} variant="contained" color="primary" size='small' onClick={() => handleBuyButton(product['_id'])}>
+            {coins >= product.cost?'Comprar':`Te faltan ${product.cost-coins} puntos`}
         </Button>
         </div>
         :null}

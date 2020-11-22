@@ -31,7 +31,8 @@ export const getUserData = (user) =>({
 
 export const fetchUserData = () =>{
     return (dispatch) => {
-        console.log('se hizo fetch de User');
+        console.log('se hizo fetch de User')
+        dispatch(loadingInProgress(true))
         fetch('https://coding-challenge-api.aerolab.co/user/me', {
             method: 'GET' ,
             headers: {
@@ -41,8 +42,9 @@ export const fetchUserData = () =>{
             }
         }).then(response => response.json())
         .then(user => {
-            console.log('Usuario',user);
-            dispatch(getUserData(user));
+            console.log('Usuario',user)
+            dispatch(getUserData(user))
+            dispatch(loadingInProgress(false))
         })
         .catch(error => {console.log('Error fetchUserData', error)});
     }

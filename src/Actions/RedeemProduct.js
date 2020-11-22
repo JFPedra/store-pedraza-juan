@@ -1,6 +1,12 @@
-
+const redeemSucceed = () =>({
+    type:'SUCCESS'
+});
+const redeemFailed = () =>({
+    type:'FAILED'
+});
 const fetchReedemProduct = (id) => {
     return (dispatch) => {
+        console.log('se va a hacer fetch del producto:', id)
         fetch ('https://coding-challenge-api.aerolab.co/redeem', {
             method:'POST',
             headers:{
@@ -10,10 +16,16 @@ const fetchReedemProduct = (id) => {
             },
             body: JSON.stringify({'productId':id})
         })
-        .then(dispatch())
+        .then(response => {
+            console.log(response.json())
+            dispatch(redeemSucceed())
+        }
+        )
         .catch( error =>{
             console.log('Falló fetch para redimir producto', error)
-            dispatch()
+            dispatch(redeemFailed())
         })
     }
-}
+};
+
+export default fetchReedemProduct;

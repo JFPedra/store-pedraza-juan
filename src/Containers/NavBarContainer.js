@@ -4,14 +4,18 @@ import {fetchUserData} from '../Actions/GetProductsAndUserData';
 import fetchAddPoints from '../Actions/AddPoints'
 import {fetchRedeemHistory} from '../Actions/GetRedeemHistory'
 
+import {fetchProducts} from '../Actions/GetProductsAndUserData';
+
 const mapStateToProps = (state) => ({
-    user: state.userReducer
+    user: state.userReducer,
+    isRedeemHistory: state.isRedeemHistoryReducer,
 });
 
 const mapActionsToProps = {
     fetchUserData,
     fetchAddPoints,
-    fetchRedeemHistory
+    fetchRedeemHistory,
+    fetchProducts,
 }
 
 export default connect(mapStateToProps, mapActionsToProps)(Navbar)

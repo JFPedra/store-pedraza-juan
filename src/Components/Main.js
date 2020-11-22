@@ -5,6 +5,7 @@ import Grid from "@material-ui/core/Grid";
 import Loading from "./Loading";
 import Card from "./ProductCard";
 import store from "../Store";
+import { Typography } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -25,7 +26,9 @@ const Main = ({
   isLoading,
   filters,
   fetchProducts,
-  coins
+  coins,
+  fetchRedeemProduct,
+  redeemProduct
 }) => {
   const [pageNumber, setPageNumber] = React.useState(1);
   React.useEffect(() => {
@@ -42,22 +45,22 @@ const Main = ({
   const handlePagination = (page) => {
     setPageNumber(page);
   };
-  console.log("estado actual", store.getState());
+  //console.log("estado actual", store.getState());
+  //console.log('Is Redeem History:', isRedeemHistory)
   return (
     <main>
       {isLoading ? (
         <Loading />
-      ) : (
+      ) : (        
         <Grid container className={classes.container}>
+          {isRedeemHistory ?<Grid item xs={12}> <Typography>Los productos que has redimido son:</Typography></Grid>:null}
           {paginationProducts.map((product, index) => (
             <Grid item key={index} xs={3} className={classes.gridCard}>
               <Card
-                name={product.name}
-                category={product.category}
-                img={product.img.url}
-                cost={product.cost}
+                product={product}      
                 coins={coins}
                 isRedeemHistory={isRedeemHistory}
+                fetchRedeemProduct={fetchRedeemProduct}
               />
             </Grid>
           ))}

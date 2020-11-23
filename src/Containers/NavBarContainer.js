@@ -9,6 +9,7 @@ import {fetchProducts} from '../Actions/GetProductsAndUserData';
 const mapStateToProps = (state) => ({
     user: state.userReducer,
     isRedeemHistory: state.isRedeemHistoryReducer,
+    products: state.productReducer
 });
 
 const mapActionsToProps = {

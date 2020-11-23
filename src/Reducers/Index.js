@@ -33,10 +33,18 @@ const loadingReducer =(state = true, action) =>{
             return state;
     }
 }
-const filtersReducer = (state={category:'', price:[0, 10000]}, action) => {
+const filtersReducer = (state={category:'', price:[0, 3000]}, action) => {
     switch(action.type) {
-        case 'FILTER':
-            return action.filter;
+        case 'CATEGORY':
+            return ({
+                ...state,
+                category: action.category
+            });
+        case 'PRICE':
+            return ({
+                ...state,
+                price: action.price
+            });
         default:
             return state;
     }
@@ -55,6 +63,8 @@ const redeemProductReducer = (state = "", action) =>{
             return action.type;
         case 'FAILED':
             return action.type;
+            case 'RESET':
+            return '';
         default:
             return state;
     }

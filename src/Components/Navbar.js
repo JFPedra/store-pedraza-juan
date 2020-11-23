@@ -5,6 +5,7 @@ import {AppBar, Toolbar, Typography, IconButton, MenuItem, Menu,
 import {AccountCircle} from "@material-ui/icons/"
 import AddBoxIcon from '@material-ui/icons/AddBox';
 import MonetizationOnRoundedIcon from '@material-ui/icons/MonetizationOnRounded';
+import store from '../Store';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -61,13 +62,13 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function MenuAppBar({user, isRedeemHistory, fetchUserData, fetchAddPoints, fetchRedeemHistory, fetchProducts}) {
+export default function MenuAppBar({user, isRedeemHistory, products, fetchUserData, fetchAddPoints, fetchRedeemHistory, fetchProducts}) {
   const [anchorAccountMenu, setAnchorAccountMenu] = React.useState(null);
   
   React.useEffect(() => {
     fetchUserData()
   }, []);
-
+  const categorities = products.map( product => product.category).filter((product, index) => products.map(product => product.category).indexOf(product) === index);
 
   const classes = useStyles();
   const handleAccountMenu = (event) => {
@@ -87,7 +88,7 @@ export default function MenuAppBar({user, isRedeemHistory, fetchUserData, fetchA
   const handleHomeButton = () => {
     fetchProducts()
   }
-  console.log('Is Redeem History?:',isRedeemHistory)
+  //console.log('cateforias:', categorities)
   //console.log(user, 'user info en Navbar');
   //console.log(store.getState(), 'esta es el state');
   return (
@@ -109,7 +110,9 @@ export default function MenuAppBar({user, isRedeemHistory, fetchUserData, fetchA
           </div>
           <div className={classes.filter}>
             <Typography className={classes.filterTypo}>Filtrar por:</Typography>
-            <CategorySelect />
+            <CategorySelect 
+              categorities={categorities}
+            />
             <PriceSlider />
           </div>
           <div className={classes.points}>
@@ -202,9 +205,8 @@ const PointsMenu = ({user, fetchAddPoints}) => {
             </div>
   )
 }
-const CategorySelect = () => {
+const CategorySelect = ({categorities}) => {
   const [category, setCategory] = React.useState('');
-  const categorities = ["Phones", "Gaming", "Laptods", "Cameras", "Audio"];
   const classes = useStyles();
 
   const handleChange = (event) => {

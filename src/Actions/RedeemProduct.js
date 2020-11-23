@@ -4,9 +4,13 @@ const redeemSucceed = () =>({
 const redeemFailed = () =>({
     type:'FAILED'
 });
+const redeemReset = () =>({
+    type: 'RESET'
+})
 const fetchReedemProduct = (id) => {
     return (dispatch) => {
         console.log('se va a hacer fetch del producto:', id)
+        dispatch(redeemReset())
         fetch ('https://coding-challenge-api.aerolab.co/redeem', {
             method:'POST',
             headers:{

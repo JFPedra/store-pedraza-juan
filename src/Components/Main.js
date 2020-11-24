@@ -55,9 +55,10 @@ const Main = ({
       setOpen(true)
     }
   }, [redeemProduct])
-  React.useEffect(() => {
-    
-  }, [filters])
+  React.useEffect(()=>{
+    setPageNumber(1)
+  },[products])
+
   const totalPages = Math.ceil(products.length / 16);
   const classes = useStyles();
   console.log('Categoria de filter',filters.category)

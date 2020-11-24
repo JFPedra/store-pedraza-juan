@@ -247,7 +247,6 @@ const PriceSlider = () => {
   };
 
   const handleChangeComitted = (event, value) => {
-    console.log(value);
     store.dispatch(priceFilter(value))
   };
 

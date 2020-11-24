@@ -7,7 +7,6 @@ import {
   Typography,
   Button,
 } from "@material-ui/core";
-import ShoppingBasketSharpIcon from "@material-ui/icons/ShoppingBasketSharp";
 
 const useStyles = makeStyles((theme) => ({
   image: {
@@ -35,7 +34,6 @@ const ProductCard = ({ product, isRedeemHistory, coins, fetchRedeemProduct }) =>
   //console.log(isRedeemHistory, 'en card')
 
   const handleBuyButton = (id) => {
-    console.log('se activo botón comprar')
     fetchRedeemProduct(id)
   }
   return (

@@ -4,8 +4,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Loading from "./Loading";
 import Card from "./ProductCard";
-import store from "../Store";
-import { Typography, Modal, Paper } from "@material-ui/core";
+import { Typography, Modal } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -73,7 +72,7 @@ const Main = ({
   const handleModalClosing = () =>{
     setOpen(false)
   }
-  console.log("estado actual", store.getState());
+  //console.log("estado actual", store.getState());
   //console.log('Is Redeem History:', isRedeemHistory)
   return (
     <main>

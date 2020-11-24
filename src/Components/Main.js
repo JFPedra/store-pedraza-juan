@@ -56,11 +56,14 @@ const Main = ({
       setOpen(true)
     }
   }, [redeemProduct])
+  React.useEffect(() => {
+    
+  }, [filters])
   const totalPages = Math.ceil(products.length / 16);
   const classes = useStyles();
-  const filteredProducts = products;
-  //products.filter(product => filters.category ? product?.category === filters.category : product)
-  //.filter(product => product.cost <= filters.price[1] && product.cost >= filters.price[0]);
+  console.log('Categoria de filter',filters.category)
+  const filteredProducts = products.filter(product => filters.category ? product.category === filters.category : product)
+                                  .filter(product => product.cost <= filters.price[1] && product.cost >= filters.price[0]);
   const begin = (pageNumber - 1) * 16;
   const end = begin + 16;
   const paginationProducts = filteredProducts.slice(begin, end);
@@ -70,7 +73,7 @@ const Main = ({
   const handleModalClosing = () =>{
     setOpen(false)
   }
-  //console.log("estado actual", store.getState());
+  console.log("estado actual", store.getState());
   //console.log('Is Redeem History:', isRedeemHistory)
   return (
     <main>

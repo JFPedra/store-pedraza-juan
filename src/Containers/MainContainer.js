@@ -8,7 +8,7 @@ const mapStatetoProps = (state, ownprops) => ({
     products : state.productReducer,
     isLoading: state.loadingReducer,
     isRedeemHistory: state.isRedeemHistoryReducer,
-    filter: state.filtersReducer,
+    filters: state.filtersReducer,
     redeemProduct: state.redeemProductReducer
 })
 const mapActionstoProps = {

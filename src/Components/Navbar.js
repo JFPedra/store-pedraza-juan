@@ -6,6 +6,7 @@ import {AccountCircle} from "@material-ui/icons/"
 import AddBoxIcon from '@material-ui/icons/AddBox';
 import MonetizationOnRoundedIcon from '@material-ui/icons/MonetizationOnRounded';
 import store from '../Store';
+import {categoryFilter, priceFilter} from '../Actions/Filters'
 
 
 const useStyles = makeStyles((theme) => ({
@@ -211,7 +212,9 @@ const CategorySelect = ({categorities}) => {
 
   const handleChange = (event) => {
     setCategory(event.target.value);
+    store.dispatch(categoryFilter(event.target.value))
   };
+
   return (
     <FormControl variant="outlined" className={classes.formControl}>
       <InputLabel htmlFor="categoria-select">Categoría</InputLabel>
@@ -245,6 +248,7 @@ const PriceSlider = () => {
 
   const handleChangeComitted = (event, value) => {
     console.log(value);
+    store.dispatch(priceFilter(value))
   };
 
   return (

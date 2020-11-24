@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/store-pedraza-juan/static/css/main.58ce4ee3.chunk.css",
+    "main.js": "/store-pedraza-juan/static/js/main.a383ed8c.chunk.js",
+    "main.js.map": "/store-pedraza-juan/static/js/main.a383ed8c.chunk.js.map",
+    "runtime-main.js": "/store-pedraza-juan/static/js/runtime-main.58340847.js",
+    "runtime-main.js.map": "/store-pedraza-juan/static/js/runtime-main.58340847.js.map",
+    "static/js/2.12d8e36c.chunk.js": "/store-pedraza-juan/static/js/2.12d8e36c.chunk.js",
+    "static/js/2.12d8e36c.chunk.js.map": "/store-pedraza-juan/static/js/2.12d8e36c.chunk.js.map",
+    "static/js/3.1f7e2cfb.chunk.js": "/store-pedraza-juan/static/js/3.1f7e2cfb.chunk.js",
+    "static/js/3.1f7e2cfb.chunk.js.map": "/store-pedraza-juan/static/js/3.1f7e2cfb.chunk.js.map",
+    "index.html": "/store-pedraza-juan/index.html",
+    "static/css/main.58ce4ee3.chunk.css.map": "/store-pedraza-juan/static/css/main.58ce4ee3.chunk.css.map",
+    "static/js/2.12d8e36c.chunk.js.LICENSE.txt": "/store-pedraza-juan/static/js/2.12d8e36c.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.58340847.js",
+    "static/js/2.12d8e36c.chunk.js",
+    "static/css/main.58ce4ee3.chunk.css",
+    "static/js/main.a383ed8c.chunk.js"
+  ]
+}
